@@ -15,6 +15,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5173"));
+
 app.MapControllers();
 
 using var scope = app.Services.CreateScope();
